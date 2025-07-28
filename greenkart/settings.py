@@ -69,6 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'greenkart.wsgi.application'
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
