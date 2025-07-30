@@ -1,20 +1,12 @@
 from django.shortcuts import render
+from store.models import Product
 from django.http import HttpRequest
 
 def home(request):
-    return render(request,'home.html')
+    products = Product.objects.all().filter(is_available = True)
 
-def store(request):
-    return HttpRequest("Welcome")
+    context = {
+        'products': products
+    }
+    return render(request,'home.html',context)
 
-def search(request):
-    return HttpRequest("Test")
-
-def login(request):
-    return HttpRequest("Login")
-
-def register(request):
-    return HttpRequest("Register")
-
-def cart(request):
-    return HttpRequest('Cart')
